@@ -29,7 +29,7 @@ export class DiscordClient extends Client {
 			const { Event } = await import(eventFile),
 				event = new Event(this);
 
-			this.on(event.type, (...args) => event.run(...args));
+			this.on(event.type, (...args) => event.run(this, ...args));
 		}
 
 		this.login(this.secrets.botToken);
