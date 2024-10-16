@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "tsc && pnpm start",
+		"build": "tsc",
 		"start": "node dist"
 	},
 	"keywords": [],
