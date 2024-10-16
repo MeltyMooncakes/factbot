@@ -1,10 +1,11 @@
 import { Client, ClientOptions, CommandInteraction, EmbedBuilder, GatewayIntentBits, Message, Partials } from "discord.js";
-import { existsSync, readdirSync, readFileSync } from "fs";
+import { existsSync, readdirSync, readFileSync, writeFileSync } from "fs";
 import { parse } from "yaml";
 import { UnknownCategory } from "./errors";
 import { glob } from "glob";
 import { resolve } from "path";
 import { CommandManager } from "./managers/commands";
+import { exit } from "process";
 
 
 export class DiscordClient extends Client {
@@ -16,7 +17,13 @@ export class DiscordClient extends Client {
 	constructor(options: ClientOptions) {
 		super(options);
 
-		this.secrets = parse(readFileSync("./configs/secrets.yaml", "utf-8"));
+		try {
+			this.secrets = parse(readFileSync("./configs/secrets.yaml", "utf-8"));
+		} catch (e) {
+			console.log("./configs/secrets.yaml was not found, creating base file.\nPlease set up this file before starting the bot.");
+			writeFileSync("./configs/secrets.yaml", "botToken: INSERT-TOKEN-HERE", "utf-8");
+			exit(1);	
+		}
 		this.config = parse(readFileSync("./configs/config.yaml", "utf-8"));
 		this.config.prefix = new RegExp(this.config.prefix, "i");
 		this.commands = new CommandManager(this);
