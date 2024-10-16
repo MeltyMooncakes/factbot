@@ -1,0 +1,10 @@
+categoryName: Animals
+categorySearch: animal(s)? # a regular expression for the category name.
+facts:
+  - Pigeons have transparent eyelids.
+  - The butthole of a hedgehog is actually on their chest.
+  - Squirrels are behind most power outages in the U.S.
+  - A South African fish migration is so huge it can be seen from space.
+  - There are more plastic flamingos than real ones.
+  - Dolphins name each other, going by different whistles they can recognize each other by.
+  - Mosquitos are more likely to take blood from you if you're wearing blue.

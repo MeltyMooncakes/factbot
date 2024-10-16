@@ -1,0 +1,9 @@
+categoryName: Technology
+categorySearch: tech(nology)? # a regular expression for the category name.
+facts:
+  - Wine, the popular Windows compatibility layer for linux, stands for "Wine Is Not an Emulator".
+  - Javascript is a scripting language based off of the Java syntax.
+  - Ironically, "Don't be evil" is Google's former motto.
+  - The Samsung Note 7 was recalled due to the batteries in the phones overheating and exploding.
+  - On October 25, 2006, ATI Technologies, the company responsible for Radeon Graphics, was bought out by AMD for 5.4 billion USD.
+  - Having more than 2 sticks of ram causes instability.

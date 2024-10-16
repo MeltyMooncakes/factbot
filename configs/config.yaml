@@ -1,0 +1,8 @@
+embedColour: "#dd9ac2"
+showCategory: true
+
+# this is a regular expression, keep it that way
+prefix: ^(f!|<@(!?)922645508588200027>\ )
+developers:
+  - "512027467972739082"
+  - "290610400763052035"
