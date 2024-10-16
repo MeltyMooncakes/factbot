@@ -17,13 +17,13 @@ export class DiscordClient extends Client {
 	constructor(options: ClientOptions) {
 		super(options);
 
-		try {
-			this.secrets = parse(readFileSync("./configs/secrets.yaml", "utf-8"));
-		} catch {
+		if (!existsSync("./configs/secrets.yaml")) {
 			console.log("./configs/secrets.yaml was not found, creating base file.\nPlease set up this file before starting the bot.");
 			writeFileSync("./configs/secrets.yaml", "botToken: INSERT-TOKEN-HERE", "utf-8");
 			exit(1);	
 		}
+
+		this.secrets = parse(readFileSync("./configs/secrets.yaml", "utf-8"));
 		this.config = parse(readFileSync("./configs/config.yaml", "utf-8"));
 		this.config.prefix = new RegExp(this.config.prefix, "i");
 		this.commands = new CommandManager(this);
