@@ -19,7 +19,7 @@ export class DiscordClient extends Client {
 
 		try {
 			this.secrets = parse(readFileSync("./configs/secrets.yaml", "utf-8"));
-		} catch (e) {
+		} catch {
 			console.log("./configs/secrets.yaml was not found, creating base file.\nPlease set up this file before starting the bot.");
 			writeFileSync("./configs/secrets.yaml", "botToken: INSERT-TOKEN-HERE", "utf-8");
 			exit(1);	
